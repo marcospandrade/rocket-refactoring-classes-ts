@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import Header from '../../components/Header';
-import api from '../../services/api';
-import Food from '../../components/Food';
-import ModalAddFood from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
+import ModalAddFood from '../../components/ModalAddFood';
+import Header from '../../components/Header';
+import Food from '../../components/Food';
+
+import api from '../../services/api';
+
 import { FoodsContainer } from './styles';
 
 export type FoodType = {
@@ -33,7 +35,7 @@ export function Dashboard() {
         getAllFoods();
     }, []);
 
-    async function handleAddFood(food: any) {
+    async function handleAddFood(food: FoodType) {
         try {
             const response = await api.post('/foods', {
                 ...food,

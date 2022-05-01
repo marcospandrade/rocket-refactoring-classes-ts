@@ -1,12 +1,18 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { IconType } from 'react-icons';
+import {
+    useEffect,
+    useRef,
+    useState,
+    useCallback,
+    InputHTMLAttributes
+} from 'react';
 import { useField } from '@unform/core';
+import { IconType } from 'react-icons';
 
 import { Container } from './styles';
 
-type InputProps = {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string;
-    icon: IconType;
+    icon?: IconType;
 };
 
 export function Input({ name, icon: Icon, ...rest }: InputProps) {
@@ -19,7 +25,6 @@ export function Input({ name, icon: Icon, ...rest }: InputProps) {
 
     const handleInputFocus = useCallback(() => {
         setIsFocused(true);
-        console.log('FOCUSED');
     }, []);
 
     const handleInputBlur = useCallback(() => {
@@ -50,5 +55,3 @@ export function Input({ name, icon: Icon, ...rest }: InputProps) {
         </Container>
     );
 }
-
-export default Input;

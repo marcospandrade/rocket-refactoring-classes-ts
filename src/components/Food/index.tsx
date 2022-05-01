@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { FiEdit3, FiTrash } from 'react-icons/fi';
 
-import { Container } from './styles';
-import api from '../../services/api';
 import { FoodType } from '../../pages/Dashboard';
+
+import api from '../../services/api';
+
+import { Container } from './styles';
 
 interface FoodProps {
     food: FoodType;
@@ -12,7 +14,6 @@ interface FoodProps {
 }
 
 export function Food({ food, handleDelete, handleEditFood }: FoodProps) {
-    console.log('food', food);
     const [isAvailable, setIsAvailable] = useState(food.available);
 
     async function toggleAvailable() {
